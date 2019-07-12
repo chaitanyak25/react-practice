@@ -19,13 +19,7 @@ export default class Search extends React.Component {
             .then(res => res.json())
             .then(
                 (result) => {
-                    this.setState({
-                        weatherInfo:{
-                            "name": result.name,
-                            "temp": result.main.temp,
-                            "humidity": result.main.humidity
-                        }
-                    })
+                    this.props.result(result);
                 },
                 (error) => {
                     this.setState({
@@ -45,11 +39,6 @@ export default class Search extends React.Component {
                 </div>
                 <div className="btnCont">
                     <button onClick={this.getWeatherInfo}>Get Weather Info</button>
-                </div>
-                <div className="searchRes">
-                    <label>City:{this.state.weatherInfo.name}</label><br/>
-                    <label>Temparature:{this.state.weatherInfo.temp}</label><br/>
-                    <label>Humidity:{this.state.weatherInfo.humidity}</label><br/>
                 </div>
             </div>
         )

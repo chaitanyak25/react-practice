@@ -1,0 +1,30 @@
+html, body {
+  height: 100%;
+}
+
+div#root {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  background-image: url(./assets/css/images/nature.jpg);
+  background-size: cover;
+}
+
+.searchRes {
+  width: 40%;
+  display: inline-block;
+  color: white;
+  float: right;
+}
+
+.searchCont {
+  width: 60%;
+  display: inline-block;
+}
+
+label.temp-res {
+  font-size: 45px;
+}

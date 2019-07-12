@@ -1,13 +1,24 @@
 import React from 'react';
-// import Left from './components/left/left';
-// import Right from './components/right/right';
-import Search from './components/Search/Search'
+import Search from './components/Search/Search';
+import Results from './components/Results/Results';
+import "./App.css";
 
 class app extends React.Component {
+  state = {
+    "result": {}
+  }
+
+  updateResult = (res) => {
+    this.setState({
+      "result": res
+    })
+  }
+
   render() {
     return (
-      <div>
-        <Search />
+      <div className="container">
+        <Search result={this.updateResult}/>
+        <Results result={this.state.result}/>
       </div>
     );
   }
