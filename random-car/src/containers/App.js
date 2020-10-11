@@ -5,24 +5,22 @@ import Randomcar from '../RandomCar/randomcar';
 class App extends Component {
 
     state = {
-        users: []
+        randomcar: []
     }
 
     componentDidMount() {
-        console.log("ddd")
-        axios.get('http://tasks-application-leopard.herokuapp.com/users').then(res => {
-            this.setState({ users: res.data });
+        axios.get('http://tasks-application-leopard.herokuapp.com/randomcarapi').then(res => {
+            this.setState({ randomcar: res.data.results });
         })
     }
 
     render() {
-        const users = this.state.users.map(user => {
-            console.log(user)
-            return <Randomcar name={user.name} />;
+        const cars = this.state.randomcar.map(car => {
+            return <Randomcar key={car._id} name={car.name} />;
         });
         return (
             <div>
-                { users}
+                {cars}
             </div>
 
         );
